@@ -29142,6 +29142,23 @@ module.exports = About;
 "use strict";
 
 var React = require('react');
+
+var Authors = React.createClass({displayName: "Authors",
+    render: function() {
+        return (
+            React.createElement("div", null, 
+                React.createElement("h1", null, "Authors ")
+            )
+        );
+    }
+});
+
+module.exports = Authors;
+
+},{"react":157}],160:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
 var Header = React.createClass({displayName: "Header",
     render: function() {
         return (
@@ -29152,6 +29169,7 @@ var Header = React.createClass({displayName: "Header",
                     ), 
                     React.createElement("ul", {className: "nav navbar-nav"}, 
                         React.createElement("li", null, React.createElement("a", {href: "/"}, "Home")), 
+                        React.createElement("li", null, React.createElement("a", {href: "/#authors"}, "Authors")), 
                         React.createElement("li", null, React.createElement("a", {href: "/#about"}, "About"))
                     )
                 )
@@ -29162,7 +29180,7 @@ var Header = React.createClass({displayName: "Header",
 
 module.exports = Header;
 
-},{"react":157}],160:[function(require,module,exports){
+},{"react":157}],161:[function(require,module,exports){
   "use strict";
 
   var React = require('react');
@@ -29179,19 +29197,21 @@ module.exports = Header;
   });
 
   module.exports = Home;
-},{"react":157}],161:[function(require,module,exports){
+},{"react":157}],162:[function(require,module,exports){
 $ = jQuery = require('jquery');
 var React = require('react');
 var Home = require('./Components/homePage');
 var About = require('./Components/about/aboutPage');
 var Header = require('./Components/common/header');
+var Authors = require('./Components/authors/authorPage');
 
 var App = React.createClass({displayName: "App",
     render: function() {
         var Child;
 
         switch (this.props.route) {
-            case 'about': Child = About; break;        
+            case 'about': Child = About; break;
+            case 'authors': Child = Authors; break;          
             default: Child = Home; break;
         }
         return (
@@ -29210,4 +29230,4 @@ function render() {
 
 window.addEventListener('hashchange', render);
 render();
-},{"./Components/about/aboutPage":158,"./Components/common/header":159,"./Components/homePage":160,"jquery":1,"react":157}]},{},[161]);
+},{"./Components/about/aboutPage":158,"./Components/authors/authorPage":159,"./Components/common/header":160,"./Components/homePage":161,"jquery":1,"react":157}]},{},[162]);
